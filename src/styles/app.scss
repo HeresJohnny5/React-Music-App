@@ -4,5 +4,11 @@
   padding: 0;
 }
 
-@import './player';
-@import './song';
+h1,
+h2,
+h3 {
+  color: #333333;
+}
+
+@import "./player";
+@import "./song";
