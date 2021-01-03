@@ -12,7 +12,7 @@ import {
 
 export const Player = () => {
   return (
-    <div className="player">
+    <div className="player-container">
       <div className="time-control">
         <p>Start Time</p>
         <input type="range" />
