@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 // Without the curly braces this imports the entire package/library
 // With curly braces you're importing one specific thing in comparison to the entire package/library
 
@@ -10,7 +10,14 @@ import {
   faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-export const Player = () => {
+export const Player = ({ currentSong }) => {
+  const audioRef = useRef(null);
+
+  // Event Handlers
+  const playSongHandler = () => {
+    audioRef.current.play();
+  };
+
   return (
     <div className="player-container">
       <div className="time-control">
@@ -19,14 +26,20 @@ export const Player = () => {
         <p>End Time</p>
       </div>
       <div className="play-control">
-        <FontAwesomeIcon icon={faAngleLeft} size="2x" className="skip-back" />
-        <FontAwesomeIcon icon={faPlay} size="2x" className="play" />
+        <FontAwesomeIcon className="skip-back" icon={faAngleLeft} size="2x" />
         <FontAwesomeIcon
+          className="play"
+          icon={faPlay}
+          size="2x"
+          onClick={() => playSongHandler()}
+        />
+        <FontAwesomeIcon
+          className="skip-forward"
           icon={faAngleRight}
           size="2x"
-          className="skip-forward"
         />
       </div>
+      <audio ref={audioRef} src={currentSong.audio}></audio>
     </div>
   );
 };
