@@ -16,8 +16,8 @@ export const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
 
   // State
   const [songInfo, setSongInfo] = useState({
-    currentTime: null,
-    duration: null,
+    currentTime: 0,
+    duration: 0,
   });
 
   // Event Handlers
