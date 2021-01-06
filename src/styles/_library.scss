@@ -18,10 +18,18 @@
   align-items: center;
   cursor: pointer;
   padding: 1rem 2rem;
-  transition: background-color .25s ease-in-out;
+  background: linear-gradient(to right, #86e2d5 50%, #fff 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all .5s ease-out;
 
   &:hover {
-    background-color: #86e2d5;
+    background-position: left bottom;
+  }
+
+  &:hover .song-description h3,
+  &:hover .song-description h4 {
+    color: #fff;
   }
 
   img {
