@@ -1,8 +1,15 @@
 import React from "react";
 
-export const LibrarySong = ({ song }) => {
+export const LibrarySong = ({ song, currentSong, setCurrentSong }) => {
+  const setSongHandler = () => {
+    console.log("song: ", song);
+    console.log("currentSong: ", currentSong);
+
+    setCurrentSong(song);
+  };
+
   return (
-    <div className="library-song">
+    <div className="library-song" onClick={() => setSongHandler()}>
       <img src={song.cover} alt={song.name} />
       <div className="song-description">
         <h3>{song.name}</h3>
