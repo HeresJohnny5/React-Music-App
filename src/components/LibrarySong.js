@@ -1,10 +1,8 @@
 import React from "react";
 
-export const LibrarySong = ({ song, currentSong, setCurrentSong }) => {
+export const LibrarySong = ({ song, setCurrentSong }) => {
+  // Event Handlers
   const setSongHandler = () => {
-    console.log("song: ", song);
-    console.log("currentSong: ", currentSong);
-
     setCurrentSong(song);
   };
 
