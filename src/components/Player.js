@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 // Without the curly braces this imports the entire package/library
 // With curly braces you're importing one specific thing in comparison to the entire package/library
 
@@ -11,15 +11,14 @@ import {
   faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-export const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
-  const audioRef = useRef(null);
-
-  // State
-  const [songInfo, setSongInfo] = useState({
-    currentTime: 0,
-    duration: 0,
-  });
-
+export const Player = ({
+  audioRef,
+  currentSong,
+  isPlaying,
+  setIsPlaying,
+  songInfo,
+  setSongInfo,
+}) => {
   // Event Handlers
   const playSongHandler = () => {
     if (isPlaying) {
@@ -29,17 +28,6 @@ export const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
       audioRef.current.play();
       setIsPlaying(!isPlaying);
     }
-  };
-
-  const timeUpdateHandler = (e) => {
-    const currentTime = e.target.currentTime;
-    const duration = e.target.duration;
-
-    setSongInfo({
-      ...songInfo,
-      currentTime,
-      duration,
-    });
   };
 
   const dragHandler = (e) => {
@@ -84,12 +72,6 @@ export const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
           size="2x"
         />
       </div>
-      <audio
-        ref={audioRef}
-        src={currentSong.audio}
-        onTimeUpdate={timeUpdateHandler}
-        onLoadedMetadata={timeUpdateHandler}
-      ></audio>
     </div>
   );
 };
