@@ -18,13 +18,24 @@
   align-items: center;
   cursor: pointer;
   padding: 1rem 2rem;
-  background: linear-gradient(to right, #86e2d5 50%, #fff 50%);
-  background-size: 200% 100%;
-  background-position: right bottom;
-  transition: all .5s ease-out;
+  transition: all .25s ease-in-out;
+
+  // background: linear-gradient(to right, #86e2d5 50%, #fff 50%);
+  // background-size: 200% 100%;
+  // background-position: right bottom;
+  // transition: all .5s ease-out;
+
+  // &:hover {
+  //   background-position: left bottom;
+  // }
+
+  // &:hover .song-description h3,
+  // &:hover .song-description h4 {
+  //   color: #fff;
+  // }
 
   &:hover {
-    background-position: left bottom;
+    background-color: #86e2d5;
   }
 
   &:hover .song-description h3,
@@ -46,6 +57,11 @@
     h4 {
       font-size: 0.7rem;
     }
+  }
+
+  /* Testing */
+  &.selected {
+    background-color: violet;
   }
 }
 

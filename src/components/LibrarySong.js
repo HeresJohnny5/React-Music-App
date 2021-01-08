@@ -17,7 +17,10 @@ export const LibrarySong = ({ audioRef, song, setCurrentSong, isPlaying }) => {
   };
 
   return (
-    <div className="library-song" onClick={() => setSongHandler()}>
+    <div
+      className={`library-song ${song.active ? "selected" : ""}`}
+      onClick={() => setSongHandler()}
+    >
       <img src={song.cover} alt={song.name} />
       <div className="song-description">
         <h3>{song.name}</h3>
