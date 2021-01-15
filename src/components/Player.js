@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 // Without the curly braces this imports the entire package/library
 // With curly braces you're importing one specific thing in comparison to the entire package/library
 
@@ -52,7 +52,7 @@ export const Player = ({
         <input
           type="range"
           min={0}
-          max={songInfo.duration}
+          max={songInfo.duration || 0}
           value={songInfo.currentTime}
           onChange={dragHandler}
         />

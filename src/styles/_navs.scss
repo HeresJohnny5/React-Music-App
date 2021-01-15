@@ -1,0 +1,19 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 10vh;
+
+  button {
+    background: transparent;
+    border: 2px solid #414141;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      background: #414141;
+      color: #fff;
+    }
+  }
+}
