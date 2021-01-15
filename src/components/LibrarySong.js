@@ -1,8 +1,32 @@
 import React from "react";
 
-export const LibrarySong = ({ audioRef, song, setCurrentSong, isPlaying }) => {
+export const LibrarySong = ({
+  audioRef,
+  songs,
+  setSongs,
+  song,
+  id,
+  setCurrentSong,
+  isPlaying,
+}) => {
   // Event Handlers
   const setSongHandler = () => {
+    const newSongs = songs.map((song) => {
+      if (song.id === id) {
+        return {
+          ...song,
+          active: true,
+        };
+      } else {
+        return {
+          ...song,
+          active: false,
+        };
+      }
+    });
+
+    setSongs(newSongs);
+
     setCurrentSong(song);
 
     if (isPlaying) {

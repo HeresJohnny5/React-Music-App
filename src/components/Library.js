@@ -3,7 +3,13 @@ import React from "react";
 // Custom Components
 import { LibrarySong } from "./LibrarySong";
 
-export const Library = ({ audioRef, songs, setCurrentSong, isPlaying }) => {
+export const Library = ({
+  audioRef,
+  songs,
+  setSongs,
+  setCurrentSong,
+  isPlaying,
+}) => {
   return (
     <div className="library">
       <h2>Library</h2>
@@ -14,6 +20,9 @@ export const Library = ({ audioRef, songs, setCurrentSong, isPlaying }) => {
               key={song.id}
               audioRef={audioRef}
               song={song}
+              id={song.id}
+              songs={songs}
+              setSongs={setSongs}
               setCurrentSong={setCurrentSong}
               isPlaying={isPlaying}
             />
