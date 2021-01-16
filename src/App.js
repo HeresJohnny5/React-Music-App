@@ -44,7 +44,9 @@ function App() {
       <Song currentSong={currentSong} />
       <Player
         audioRef={audioRef}
+        songs={songs}
         currentSong={currentSong}
+        setCurrentSong={setCurrentSong}
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
         songInfo={songInfo}
