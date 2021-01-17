@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // Without the curly braces this imports the entire package/library
 // With curly braces you're importing one specific thing in comparison to the entire package/library
 
@@ -14,6 +14,7 @@ import {
 export const Player = ({
   audioRef,
   songs,
+  setSongs,
   currentSong,
   setCurrentSong,
   isPlaying,
@@ -21,6 +22,25 @@ export const Player = ({
   songInfo,
   setSongInfo,
 }) => {
+  // Hooks
+  useEffect(() => {
+    const newSongs = songs.map((song) => {
+      if (song.id === currentSong.id) {
+        return {
+          ...song,
+          active: true,
+        };
+      } else {
+        return {
+          ...song,
+          active: false,
+        };
+      }
+    });
+
+    setSongs(newSongs);
+  }, [currentSong]);
+
   // Event Handlers
   const playSongHandler = () => {
     if (isPlaying) {
