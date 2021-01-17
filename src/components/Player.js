@@ -50,13 +50,16 @@ export const Player = ({
   const skipTrackHandler = (direction) => {
     let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
 
-    console.log("currentIndex: ", currentIndex);
-    console.log("TEST: ", songs[currentIndex + 1]);
+    if (direction === "skip-forward") {
+      setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+    }
 
-    if (direction === "skip-forward" && currentIndex < songs.length - 1) {
-      setCurrentSong(songs[currentIndex + 1]);
-    } else if (direction === "skip-back" && currentIndex > 0) {
-      setCurrentSong(songs[currentIndex - 1]);
+    if (direction === "skip-back") {
+      if ((currentIndex - 1) % songs.length === -1) {
+        setCurrentSong(songs[songs.length - 1]);
+        return;
+      }
+      setCurrentSong(songs[(currentIndex - 1) % songs.length]);
     }
   };
 
